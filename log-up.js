@@ -60,3 +60,23 @@ const {
 
 // Being sure to do all that's outlined above, write
 // your code below!
+
+const email = process.argv[2];
+const password = process.argv[3];
+
+if (passwordMatches(email, password)) {
+  console.log("You are logged in!");
+}
+if (isRegisteredUser(email)) {
+  if (!passwordMatches(email, password)) {
+    console.log("Incorrect Password");
+  }
+}else {
+  if (isValidEmail(email) && isValidPassword(password)) {
+    console.log("You are signed up!");
+} else if (!isValidEmail(email)) {
+    console.log("Invalid email. Make sure you are a registered user.");
+} else if (!isValidPassword(password)) {
+    console.log("Invalid password. Make sure you are a registered user.");
+}
+} 
